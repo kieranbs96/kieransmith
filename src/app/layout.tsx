@@ -34,7 +34,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="en"
       className={`dark ${plexMono.variable} h-full bg-slate-900 antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-slate-900 text-slate-300">
+      {/* No background on the body: the glow layer sits at -z-10, and an
+          opaque body background would paint over it. html carries bg-slate-900. */}
+      <body className="flex min-h-full flex-col text-slate-300">
         <GlowBackground />
         <TooltipProvider>{children}</TooltipProvider>
         <Analytics />
