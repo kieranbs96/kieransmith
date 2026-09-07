@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import { Link as LinkIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -37,7 +38,7 @@ export function ExperienceList() {
           </header>
 
           <h2 className="text-base font-medium leading-tight text-slate-200">
-            <a
+            <Link
               href={experience.employerLink}
               target="_blank"
               rel="noreferrer"
@@ -45,16 +46,24 @@ export function ExperienceList() {
               className="hover:text-sky-300 focus-visible:text-sky-300"
             >
               {experience.jobTitle} · {experience.name}
-            </a>
+            </Link>
           </h2>
 
           <p className="mt-2 text-sm leading-normal text-slate-300">
             {experience.description}
           </p>
 
-          <p className="mt-2 inline-flex items-center gap-2 text-sm text-slate-400">
-            <LinkIcon aria-hidden="true" className="size-4" />
-            {experience.linkDisplay}
+          <p className="mt-2">
+            <Link
+              href={experience.employerLink}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Visit ${experience.name} website`}
+              className="inline-flex items-center gap-2 text-sm text-slate-400 underline-offset-4 transition-colors hover:text-sky-300 hover:underline focus-visible:text-sky-300"
+            >
+              <LinkIcon aria-hidden="true" className="size-4" />
+              {experience.linkDisplay}
+            </Link>
           </p>
 
           <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
