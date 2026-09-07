@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import './globals.css'
 
@@ -37,6 +39,8 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(56,189,248,0.12),transparent)]"
         />
         <TooltipProvider>{children}</TooltipProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
