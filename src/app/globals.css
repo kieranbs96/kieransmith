@@ -122,7 +122,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* No background here: the mouse glow layer renders at -z-10, and any
+       opaque body background paints over it. html carries the base colour. */
+    @apply text-foreground;
   }
   html {
     @apply font-sans;
