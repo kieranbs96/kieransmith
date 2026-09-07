@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { IBM_Plex_Mono } from 'next/font/google'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import './globals.css'
 
-const geistSans = Geist({
+const plexMono = IBM_Plex_Mono({
   variable: '--font-sans',
   subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -33,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full bg-slate-900 antialiased`}
+      className={`dark ${plexMono.variable} h-full bg-slate-900 antialiased`}
     >
       <body className="flex min-h-full flex-col bg-slate-900 text-slate-300">
         <div
