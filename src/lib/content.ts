@@ -2,7 +2,6 @@ import type { SVGProps } from 'react'
 import {
   BriefcaseBusiness,
   FileText,
-  Globe,
   Mail,
   Radio,
   UtensilsCrossed,
@@ -80,12 +79,6 @@ export const linkGroups: LinkGroup[] = [
         subtitle: '7+ years of frontend experience',
         href: 'https://docs.google.com/document/d/1SrjgdxkoMGls5e3nOPQBDnhMV6K4XVgDUewDuK5NhBo/edit?usp=sharing',
         icon: FileText,
-      },
-      {
-        title: 'Portfolio',
-        subtitle: 'kieransmith.co.uk',
-        href: 'https://www.kieransmith.co.uk/',
-        icon: Globe,
       },
     ],
   },
