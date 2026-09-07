@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import { Card } from '@/components/ui/card'
@@ -15,6 +16,8 @@ const itemVariants = {
 }
 
 export function LinkCard({ link }: LinkCardProps) {
+  const isExternal = link.isExternal ?? true
+
   return (
     <motion.li
       variants={itemVariants}
@@ -23,10 +26,10 @@ export function LinkCard({ link }: LinkCardProps) {
       className="list-none"
     >
       <Card className="group border-slate-700/60 bg-slate-800/50 p-0 transition-colors hover:border-sky-400/50 hover:bg-slate-800">
-        <a
+        <Link
           href={link.href}
-          target="_blank"
-          rel="noreferrer"
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer' : undefined}
           className="flex items-center gap-4 p-4 focus-visible:outline-2 focus-visible:outline-sky-300"
         >
           <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-sky-400/10 text-sky-300">
@@ -44,7 +47,7 @@ export function LinkCard({ link }: LinkCardProps) {
             aria-hidden="true"
             className="size-5 shrink-0 text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-sky-300 motion-reduce:transition-none"
           />
-        </a>
+        </Link>
       </Card>
     </motion.li>
   )
