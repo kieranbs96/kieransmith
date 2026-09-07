@@ -22,20 +22,20 @@ export function GlowBackground() {
   const y = useSpring(mouseY, SPRING)
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
     const handlePointerMove = (event: PointerEvent) => {
       if (event.pointerType !== 'mouse') {
         return
       }
-      // Jump straight to the cursor on the first move so the glow
-      // doesn't fly in from the corner
-      if (!hasPointer) {
+      // Jump (no spring) on the first move so the glow doesn't fly in
+      // from the corner, and on every move for reduced-motion users so
+      // the glow still follows the cursor, just without the trailing
+      // animation
+      if (!hasPointer || prefersReducedMotion) {
         mouseX.jump(event.clientX)
         mouseY.jump(event.clientY)
-        setHasPointer(true)
+        if (!hasPointer) {
+          setHasPointer(true)
+        }
         return
       }
       mouseX.set(event.clientX)
