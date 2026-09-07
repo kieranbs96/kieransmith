@@ -36,7 +36,7 @@ export const profile: Profile = {
   initials: 'KS',
   title: 'Software Engineer at Global',
   location: 'London, UK',
-  bio: 'Self-taught software engineer with 9+ years of professional software development experience, specialising in React for the past 6 years.',
+  bio: 'Self-taught software engineer, 9+ years in, working mainly with React for the last 6.',
 }
 
 export const socialLinks: SocialLink[] = [
@@ -82,9 +82,9 @@ export const projects: Project[] = [
     icon: Radio,
     technologies: ['React', 'Next.js', 'TypeScript', 'Jest', 'GraphQL'],
     writeup: [
-      'Global Player is the home of radio brands like Capital, Heart, Classic FM, and LBC, alongside podcasts and playlists — serving millions of listeners across web and mobile.',
-      'As part of the web team I develop and enhance features for the Next.js application, from live radio and catch-up experiences through to podcast browsing and playback. I work closely with designers and backend engineers across a large team to ship new functionality and improve performance.',
-      'A big part of my work is confidence in shipping: integration tests with Jest, React Testing Library, and Mock Service Worker, plus component work in Storybook.',
+      "Global Player is where you'll find Capital, Heart, Classic FM and LBC, plus podcasts and playlists. Millions of people listen through it every week, on the web and on mobile.",
+      "I work on the web app, which is built with Next.js and TypeScript. That covers everything from live radio and catch-up to podcast browsing and playback, built alongside the designers and backend engineers on the team.",
+      'Most of what I ship is backed by integration tests written with Jest, React Testing Library and Mock Service Worker, and I do component work in Storybook.',
     ],
     links: [
       {
@@ -102,8 +102,8 @@ export const projects: Project[] = [
     icon: GithubIcon,
     technologies: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'NextAuth'],
     writeup: [
-      'A full-stack Twitter clone built to explore the T3-style stack end to end: Next.js with TypeScript on the front, Prisma against a relational database on the back, and Tailwind CSS for styling.',
-      'It covers the core social loop — posting, following, likes, and profile pages — with authentication handled via NextAuth. Building it was a great exercise in modelling relational data (followers, timelines) and keeping server and client state in sync.',
+      'A full-stack Twitter clone I built to try the T3-style stack properly: Next.js and TypeScript on the front, Prisma and a relational database behind it, Tailwind for styling.',
+      'It does the core things you would expect: posting, following, likes and profile pages, with sign-in handled by NextAuth. The interesting parts were modelling followers and timelines in the database and keeping server and client state in sync.',
     ],
     links: [
       {
@@ -170,7 +170,7 @@ export const experiences: Experience[] = [
     from: 'Jun 2021',
     to: 'Present',
     description:
-      'Developing and enhancing features for the Global Player web application, constructed using Next.js and TypeScript. Proficiently conducting integration tests employing Jest, React Testing Library, and Mock Service Worker. Collaborating seamlessly within an extensive team of developers and designers to deliver novel functionalities and optimize overall performance. Additionally, gained valuable exposure to backend operations involving Python and GraphQL.',
+      "I build features for the Global Player web app, which is written in Next.js and TypeScript, and cover them with integration tests using Jest, React Testing Library and Mock Service Worker. It's a big team of developers and designers, and I've also picked up some backend work along the way in Python and GraphQL.",
     technologies: [
       'React',
       'Next.js',
@@ -190,7 +190,7 @@ export const experiences: Experience[] = [
     from: 'July 2019',
     to: 'June 2021',
     description:
-      'Proficiently managing an extensive React codebase, encompassing numerous micro-sites developed using a combination of Next.js and Gatsby, including the primary EF website. Collaborating seamlessly within a sizable team of developers and designers to drive the creation of various functionalities and enhancements in performance.',
+      'I looked after a large React codebase spanning the main EF website and a number of micro-sites, built with a mix of Next.js and Gatsby. I worked with a big team of developers and designers on new features and performance.',
     technologies: ['React', 'Gatsby', 'TypeScript', 'Next.js', 'Storybook'],
   },
   {
@@ -201,7 +201,7 @@ export const experiences: Experience[] = [
     from: 'May 2018',
     to: 'July 2019',
     description:
-      "Developing functionalities and performance monitoring for prominent clients including Canon, Domino's, and Just Eat. Leveraging JavaScript expertise to execute A/B testing through platforms such as Conversion, Qubit, and VWO.",
+      "I built and monitored A/B tests for clients like Canon, Domino's and Just Eat, mostly in plain JavaScript on platforms like Conversion, Qubit and VWO.",
     technologies: ['JavaScript', 'A/B Testing', 'CSS'],
   },
   {
@@ -212,7 +212,7 @@ export const experiences: Experience[] = [
     from: 'Aug 2015',
     to: 'May 2018',
     description:
-      "Transitioned from a role as a 3rd line support engineer at SellerDeck to pursue a development career in 2015, assuming an in-house position. Focused on diverse client projects utilizing the SellerDeck platform. Proficiently delivered customized websites employing SellerDeck's templating language, similar to PHP, in addition to collaborating with Magento and WordPress.",
+      "I started at SellerDeck on 3rd line support and moved over to development in 2015. From there I built custom sites for clients on the SellerDeck platform, using its PHP-like templating language, and did a fair bit with Magento and WordPress too.",
     technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'jQuery'],
   },
 ]
