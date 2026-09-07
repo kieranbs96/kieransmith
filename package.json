@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsgo --noEmit"
+    "typecheck": "next typegen && tsgo --noEmit"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
