@@ -1,11 +1,5 @@
 import type { SVGProps } from 'react'
-import {
-  BriefcaseBusiness,
-  FileText,
-  Mail,
-  Radio,
-  UtensilsCrossed,
-} from 'lucide-react'
+import { BriefcaseBusiness, FileText, Mail, Radio } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '@/components/icons'
 
 export type IconComponent = React.ComponentType<SVGProps<SVGSVGElement>>
@@ -90,12 +84,6 @@ export const linkGroups: LinkGroup[] = [
         subtitle: 'A radio & podcast streaming service',
         href: 'https://globalplayer.com/',
         icon: Radio,
-      },
-      {
-        title: 'Recipe Web App',
-        subtitle: 'Built with Next.js, Sanity & Tailwind CSS',
-        href: 'https://recipes.kieransmith.co.uk/',
-        icon: UtensilsCrossed,
       },
       {
         title: 'Twitter Clone',
