@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react'
-import { BriefcaseBusiness, FileText, Mail, Radio } from 'lucide-react'
+import { BriefcaseBusiness, FileText, Globe, Mail, Radio } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '@/components/icons'
 
 export type IconComponent = React.ComponentType<SVGProps<SVGSVGElement>>
@@ -34,9 +34,9 @@ export interface LinkGroup {
 export const profile: Profile = {
   name: 'Kieran Smith',
   initials: 'KS',
-  title: 'Frontend Engineer at Global',
+  title: 'Software Engineer at Global',
   location: 'London, UK',
-  bio: 'Self-taught web developer with 7+ years of professional experience, specialising in React for the past 4 years.',
+  bio: 'Self-taught software engineer with 9+ years of professional software development experience, specialising in React for the past 6 years.',
 }
 
 export const socialLinks: SocialLink[] = [
@@ -57,6 +57,68 @@ export const socialLinks: SocialLink[] = [
   },
 ]
 
+export interface ProjectLink {
+  title: string
+  subtitle?: string
+  href: string
+  icon: IconComponent
+}
+
+export interface Project {
+  slug: string
+  title: string
+  subtitle: string
+  icon: IconComponent
+  technologies: string[]
+  writeup: string[]
+  links: ProjectLink[]
+}
+
+export const projects: Project[] = [
+  {
+    slug: 'global-player',
+    title: 'Global Player',
+    subtitle: 'A radio & podcast streaming service',
+    icon: Radio,
+    technologies: ['React', 'Next.js', 'TypeScript', 'Jest', 'GraphQL'],
+    writeup: [
+      'Global Player is the home of radio brands like Capital, Heart, Classic FM, and LBC, alongside podcasts and playlists — serving millions of listeners across web and mobile.',
+      'As part of the web team I develop and enhance features for the Next.js application, from live radio and catch-up experiences through to podcast browsing and playback. I work closely with designers and backend engineers across a large team to ship new functionality and improve performance.',
+      'A big part of my work is confidence in shipping: integration tests with Jest, React Testing Library, and Mock Service Worker, plus component work in Storybook.',
+    ],
+    links: [
+      {
+        title: 'Visit Global Player',
+        subtitle: 'globalplayer.com',
+        href: 'https://globalplayer.com/',
+        icon: Globe,
+      },
+    ],
+  },
+  {
+    slug: 'twitter-clone',
+    title: 'Twitter Clone',
+    subtitle: 'Built with Next.js, Prisma & Tailwind CSS',
+    icon: GithubIcon,
+    technologies: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'NextAuth'],
+    writeup: [
+      'A full-stack Twitter clone built to explore the T3-style stack end to end: Next.js with TypeScript on the front, Prisma against a relational database on the back, and Tailwind CSS for styling.',
+      'It covers the core social loop — posting, following, likes, and profile pages — with authentication handled via NextAuth. Building it was a great exercise in modelling relational data (followers, timelines) and keeping server and client state in sync.',
+    ],
+    links: [
+      {
+        title: 'View the source',
+        subtitle: 'github.com/kieranbs96/twitter-clone',
+        href: 'https://github.com/kieranbs96/twitter-clone',
+        icon: GithubIcon,
+      },
+    ],
+  },
+]
+
+export const getProject = (slug: string): Project | undefined =>
+  projects.find((project) => project.slug === slug)
+
 export const linkGroups: LinkGroup[] = [
   {
     heading: 'Links',
@@ -70,7 +132,7 @@ export const linkGroups: LinkGroup[] = [
       },
       {
         title: 'View Full Résumé',
-        subtitle: '7+ years of frontend experience',
+        subtitle: '9+ years of developer experience',
         href: 'https://docs.google.com/document/d/1SrjgdxkoMGls5e3nOPQBDnhMV6K4XVgDUewDuK5NhBo/edit?usp=sharing',
         icon: FileText,
       },
@@ -78,20 +140,13 @@ export const linkGroups: LinkGroup[] = [
   },
   {
     heading: 'Projects',
-    links: [
-      {
-        title: 'Global Player',
-        subtitle: 'A radio & podcast streaming service',
-        href: 'https://globalplayer.com/',
-        icon: Radio,
-      },
-      {
-        title: 'Twitter Clone',
-        subtitle: 'Built with Next.js, Prisma & Tailwind CSS',
-        href: 'https://github.com/kieranbs96/twitter-clone',
-        icon: GithubIcon,
-      },
-    ],
+    links: projects.map((project) => ({
+      title: project.title,
+      subtitle: project.subtitle,
+      href: `/projects/${project.slug}`,
+      icon: project.icon,
+      isExternal: false,
+    })),
   },
 ]
 
