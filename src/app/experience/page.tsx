@@ -6,7 +6,7 @@ import { ExperienceList } from '@/components/experience-list'
 export const metadata: Metadata = {
   title: 'Experience · Kieran Smith',
   description:
-    'Work experience of Kieran Smith, Frontend Engineer at Global — 7+ years across Global, Education First, Conversion, and SellerDeck.',
+    'Work experience of Kieran Smith, Software Engineer at Global: 9+ years across Global, Education First, Conversion and SellerDeck.',
 }
 
 export default function ExperiencePage() {
@@ -27,7 +27,7 @@ export default function ExperiencePage() {
           Experience
         </h1>
         <p className="mt-2 text-sm text-slate-400">
-          7+ years of building for the web
+          9+ years of building for the web
         </p>
       </header>
 

@@ -12,14 +12,14 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Kieran Smith · Frontend Engineer',
+  title: 'Kieran Smith · Software Engineer',
   description:
-    'Frontend Engineer at Global, based in London. Links to my résumé, projects, and socials.',
+    'Software Engineer at Global, based in London. Links to my CV, projects and socials.',
   metadataBase: new URL('https://www.kieransmith.co.uk'),
   openGraph: {
-    title: 'Kieran Smith · Frontend Engineer',
+    title: 'Kieran Smith · Software Engineer',
     description:
-      'Frontend Engineer at Global, based in London. Links to my résumé, projects, and socials.',
+      'Software Engineer at Global, based in London. Links to my CV, projects and socials.',
     url: 'https://www.kieransmith.co.uk',
     siteName: 'Kieran Smith',
     locale: 'en_GB',
