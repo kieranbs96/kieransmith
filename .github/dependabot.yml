@@ -10,6 +10,17 @@ updates:
       time: '09:00'
       timezone: Europe/London
     open-pull-requests-limit: 10
+    ignore:
+      # eslint-config-next's plugins (eslint-plugin-react etc.) don't support
+      # ESLint 10 yet — remove once Next's config declares ESLint 10 support
+      - dependency-name: eslint
+        update-types:
+          - version-update:semver-major
+      # typescript-eslint requires the TS 6 API; TS 7 is installed side by side
+      # via the `typescript7` alias — remove once typescript-eslint supports TS 7.1+
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
     groups:
       # Batch minor/patch bumps into one PR to cut down on noise
       minor-and-patch:
