@@ -1,17 +1,17 @@
 import { LinkList } from '@/components/link-list'
 import { ProfileHeader } from '@/components/profile-header'
+import { SiteFooter } from '@/components/site-footer'
 import { SocialRow } from '@/components/social-row'
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center gap-8 px-4 py-16">
-      <ProfileHeader />
-      <SocialRow />
+    <main className="mx-auto flex w-full max-w-md flex-1 flex-col gap-10 px-5 py-14 sm:py-20">
+      <div className="flex flex-col gap-4">
+        <ProfileHeader />
+        <SocialRow />
+      </div>
       <LinkList />
-
-      <footer className="mt-auto pt-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Kieran Smith
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

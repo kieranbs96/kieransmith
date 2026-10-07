@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft } from 'lucide-react'
+import { BackLink } from '@/components/back-link'
 import { ProjectDetail } from '@/components/project-detail'
+import { SiteFooter } from '@/components/site-footer'
 import { getProject, projects } from '@/lib/content'
 
 interface ProjectPageProps {
@@ -37,22 +37,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-md flex-1 flex-col gap-8 px-4 py-16">
-      <nav aria-label="Back to home">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-sky-300 focus-visible:text-sky-300"
-        >
-          <ArrowLeft aria-hidden="true" className="size-4" />
-          Back to home
-        </Link>
-      </nav>
-
+    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-10 px-5 py-14 sm:py-20">
+      <BackLink />
       <ProjectDetail slug={slug} />
-
-      <footer className="mt-auto pt-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Kieran Smith
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

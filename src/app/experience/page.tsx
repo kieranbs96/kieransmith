@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { BackLink } from '@/components/back-link'
 import { ExperienceList } from '@/components/experience-list'
+import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
   title: 'Experience · Kieran Smith',
@@ -11,31 +11,18 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 px-4 py-16">
-      <nav aria-label="Back to home">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-sky-300 focus-visible:text-sky-300"
-        >
-          <ArrowLeft aria-hidden="true" className="size-4" />
-          Back to home
-        </Link>
-      </nav>
+    <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-5 py-14 sm:py-20">
+      <BackLink />
 
-      <header className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-sky-200 sm:text-4xl">
+      <header className="flex flex-col gap-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           Experience
         </h1>
-        <p className="mt-2 text-sm text-slate-400">
-          9+ years of building for the web
-        </p>
+        <p className="text-muted-foreground">Building for the web since 2015.</p>
       </header>
 
       <ExperienceList />
-
-      <footer className="mt-auto pt-8 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Kieran Smith
-      </footer>
+      <SiteFooter />
     </main>
   )
 }

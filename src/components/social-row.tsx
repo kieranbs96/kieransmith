@@ -9,10 +9,10 @@ export function SocialRow() {
   return (
     <motion.nav
       aria-label="Social links"
-      className="flex items-center justify-center gap-2"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+      className="-ml-2.5 flex items-center gap-1"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
     >
       {socialLinks.map((social) => (
         <Tooltip key={social.label}>
@@ -21,7 +21,7 @@ export function SocialRow() {
               asChild
               variant="ghost"
               size="icon"
-              className="size-11 rounded-full text-slate-300 hover:bg-sky-400/10 hover:text-sky-300"
+              className="size-10 rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
             >
               <a
                 href={social.href}

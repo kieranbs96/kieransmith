@@ -9,8 +9,10 @@ import {
   useSpring,
 } from 'motion/react'
 
-const GLOW_COLOUR = 'rgba(56, 189, 248, 0.12)'
-const SPRING = { stiffness: 120, damping: 25, mass: 0.5 }
+const GLOW_COLOUR = 'color-mix(in oklch, var(--primary) 9%, transparent)'
+// High stiffness + low mass keeps the glow close to the cursor with only a
+// slight softening; lower stiffness makes it lag noticeably
+const SPRING = { stiffness: 550, damping: 45, mass: 0.3 }
 
 export function GlowBackground() {
   const prefersReducedMotion = useReducedMotion()
@@ -49,12 +51,12 @@ export function GlowBackground() {
   const background = useMotionTemplate`radial-gradient(600px at ${x}px ${y}px, ${GLOW_COLOUR}, transparent 80%)`
 
   // Static top glow for touch devices, reduced motion, and before the
-  // first mouse move — matches the old fixed background
+  // first mouse move, matching the old fixed background
   if (!hasPointer) {
     return (
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(56,189,248,0.12),transparent)]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,color-mix(in_oklch,var(--primary)_9%,transparent),transparent)]"
       />
     )
   }

@@ -7,7 +7,7 @@ import { linkGroups } from '@/lib/content'
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.2 },
   },
 }
 
@@ -20,11 +20,14 @@ export function LinkList() {
       animate="visible"
     >
       {linkGroups.map((group) => (
-        <section key={group.heading} aria-label={group.heading}>
-          <h2 className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-slate-400">
+        <section key={group.heading} aria-labelledby={`links-${group.heading.toLowerCase()}`}>
+          <h2
+            id={`links-${group.heading.toLowerCase()}`}
+            className="mb-3 font-mono text-xs text-faint"
+          >
             {group.heading}
           </h2>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
             {group.links.map((link) => (
               <LinkCard key={link.title} link={link} />
             ))}

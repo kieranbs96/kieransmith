@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { Badge } from '@/components/ui/badge'
 import { LinkCard } from '@/components/link-card'
 import { getProject } from '@/lib/content'
 
@@ -12,12 +11,12 @@ interface ProjectDetailProps {
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.1 },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 8 },
   visible: { opacity: 1, y: 0 },
 }
 
@@ -35,27 +34,12 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
       initial="hidden"
       animate="visible"
     >
-      <motion.header variants={itemVariants} className="flex flex-col items-center gap-3 text-center">
-        <span className="flex size-14 items-center justify-center rounded-full bg-sky-400/10 text-sky-300">
-          <project.icon aria-hidden="true" className="size-7" />
-        </span>
-        <h1 className="text-3xl font-bold tracking-tight text-sky-200 sm:text-4xl">
+      <motion.header variants={itemVariants} className="flex flex-col gap-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           {project.title}
         </h1>
-        <p className="text-sm text-slate-400">{project.subtitle}</p>
+        <p className="text-muted-foreground">{project.subtitle}</p>
       </motion.header>
-
-      <motion.ul
-        variants={itemVariants}
-        className="flex flex-wrap justify-center gap-1.5"
-        aria-label="Technologies used"
-      >
-        {project.technologies.map((technology) => (
-          <li key={technology}>
-            <Badge className="bg-sky-400/10 text-sky-300">{technology}</Badge>
-          </li>
-        ))}
-      </motion.ul>
 
       <motion.section
         variants={itemVariants}
@@ -63,22 +47,21 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
         className="flex flex-col gap-4"
       >
         {project.writeup.map((paragraph) => (
-          <p key={paragraph} className="text-sm leading-relaxed text-slate-300">
+          <p key={paragraph} className="text-[15px] leading-relaxed text-foreground/80">
             {paragraph}
           </p>
         ))}
+        <p className="font-mono text-xs leading-relaxed text-faint">
+          <span className="sr-only">Technologies used: </span>
+          {project.technologies.join(', ')}
+        </p>
       </motion.section>
 
-      <section aria-label="Project links">
-        <h2 className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-slate-400">
-          Links
-        </h2>
-        <ul className="flex flex-col gap-3">
-          {project.links.map((link) => (
-            <LinkCard key={link.title} link={link} />
-          ))}
-        </ul>
-      </section>
+      <ul aria-label="Project links" className="flex flex-col gap-2">
+        {project.links.map((link) => (
+          <LinkCard key={link.title} link={link} />
+        ))}
+      </ul>
     </motion.div>
   )
 }

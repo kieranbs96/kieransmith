@@ -1,8 +1,15 @@
-import type { SVGProps } from 'react'
-import { BriefcaseBusiness, FileText, Globe, Mail, Radio } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from '@/components/icons'
+import type { Icon } from '@phosphor-icons/react'
+import {
+  Briefcase,
+  Envelope,
+  FileText,
+  GithubLogo,
+  Globe,
+  LinkedinLogo,
+  Radio,
+} from '@phosphor-icons/react/ssr'
 
-export type IconComponent = React.ComponentType<SVGProps<SVGSVGElement>>
+export type IconComponent = Icon
 
 export interface Profile {
   name: string
@@ -43,17 +50,17 @@ export const socialLinks: SocialLink[] = [
   {
     label: 'Email',
     href: 'mailto:kieranbs96@gmail.com',
-    icon: Mail,
+    icon: Envelope,
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/kieranbs96/',
-    icon: LinkedinIcon,
+    icon: LinkedinLogo,
   },
   {
     label: 'GitHub',
     href: 'https://github.com/kieranbs96/',
-    icon: GithubIcon,
+    icon: GithubLogo,
   },
 ]
 
@@ -98,8 +105,8 @@ export const projects: Project[] = [
   {
     slug: 'twitter-clone',
     title: 'Twitter Clone',
-    subtitle: 'Built with Next.js, Prisma & Tailwind CSS',
-    icon: GithubIcon,
+    subtitle: 'A full-stack side project',
+    icon: GithubLogo,
     technologies: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'NextAuth'],
     writeup: [
       'A full-stack Twitter clone I built to try the T3-style stack properly: Next.js and TypeScript on the front, Prisma and a relational database behind it, Tailwind for styling.',
@@ -110,7 +117,7 @@ export const projects: Project[] = [
         title: 'View the source',
         subtitle: 'github.com/kieranbs96/twitter-clone',
         href: 'https://github.com/kieranbs96/twitter-clone',
-        icon: GithubIcon,
+        icon: GithubLogo,
       },
     ],
   },
@@ -125,14 +132,14 @@ export const linkGroups: LinkGroup[] = [
     links: [
       {
         title: 'Experience',
-        subtitle: 'My work history at a glance',
+        subtitle: 'Where I’ve worked since 2015',
         href: '/experience',
-        icon: BriefcaseBusiness,
+        icon: Briefcase,
         isExternal: false,
       },
       {
-        title: 'View Full Résumé',
-        subtitle: '9+ years of developer experience',
+        title: 'CV',
+        subtitle: 'Full version on Google Docs',
         href: 'https://docs.google.com/document/d/1SrjgdxkoMGls5e3nOPQBDnhMV6K4XVgDUewDuK5NhBo/edit?usp=sharing',
         icon: FileText,
       },
@@ -154,7 +161,6 @@ export interface Experience {
   jobTitle: string
   name: string
   employerLink: string
-  linkDisplay: string
   from: string
   to: string
   description: string
@@ -166,7 +172,6 @@ export const experiences: Experience[] = [
     jobTitle: 'Frontend Engineer',
     name: 'Global',
     employerLink: 'https://www.globalplayer.com',
-    linkDisplay: 'www.globalplayer.com',
     from: 'Jun 2021',
     to: 'Present',
     description:
@@ -186,9 +191,8 @@ export const experiences: Experience[] = [
     jobTitle: 'Frontend Engineer',
     name: 'Education First',
     employerLink: 'https://www.ef.com',
-    linkDisplay: 'www.ef.com',
-    from: 'July 2019',
-    to: 'June 2021',
+    from: 'Jul 2019',
+    to: 'Jun 2021',
     description:
       'I looked after a large React codebase spanning the main EF website and a number of micro-sites, built with a mix of Next.js and Gatsby. I worked with a big team of developers and designers on new features and performance.',
     technologies: ['React', 'Gatsby', 'TypeScript', 'Next.js', 'Storybook'],
@@ -197,9 +201,8 @@ export const experiences: Experience[] = [
     jobTitle: 'Frontend Engineer',
     name: 'Conversion',
     employerLink: 'https://www.conversion.com',
-    linkDisplay: 'www.conversion.com',
     from: 'May 2018',
-    to: 'July 2019',
+    to: 'Jul 2019',
     description:
       "I built and monitored A/B tests for clients like Canon, Domino's and Just Eat, mostly in plain JavaScript on platforms like Conversion, Qubit and VWO.",
     technologies: ['JavaScript', 'A/B Testing', 'CSS'],
@@ -208,7 +211,6 @@ export const experiences: Experience[] = [
     jobTitle: 'Junior Web Developer',
     name: 'SellerDeck Ltd',
     employerLink: 'https://www.sellerdeck.co.uk',
-    linkDisplay: 'www.sellerdeck.co.uk',
     from: 'Aug 2015',
     to: 'May 2018',
     description:
