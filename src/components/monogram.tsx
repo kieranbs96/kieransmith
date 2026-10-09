@@ -6,7 +6,6 @@ interface MonogramProps {
   isRounded?: boolean
 }
 
-// Only renders inside ImageResponse, which supports inline styles and flexbox only
 export function Monogram({ size, isRounded = true }: MonogramProps) {
   return (
     <div

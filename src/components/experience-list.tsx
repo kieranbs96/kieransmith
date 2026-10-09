@@ -22,7 +22,7 @@ export function ExperienceList() {
     <motion.ol
       className="flex w-full flex-col divide-y divide-border"
       variants={containerVariants}
-      initial="hidden"
+      initial={false}
       animate="visible"
       aria-label="Work experience"
     >

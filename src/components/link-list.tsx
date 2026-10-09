@@ -16,7 +16,7 @@ export function LinkList() {
     <motion.div
       className="flex w-full flex-col gap-8"
       variants={containerVariants}
-      initial="hidden"
+      initial={false}
       animate="visible"
     >
       {linkGroups.map((group) => (

@@ -49,8 +49,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Neutral graphite / paper with a single orange accent (--primary).
-   --faint is for dates and tech lists; it still clears WCAG AA on --background. */
 :root {
   --background: oklch(0.975 0.002 95);
   --foreground: oklch(0.21 0.004 95);
@@ -126,8 +124,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    /* No background here: the mouse glow layer renders at -z-10, and any
-       opaque body background paints over it. html carries the base colour. */
+    /* Keep the background on html so the negative-z-index glow stays visible. */
     @apply text-foreground;
   }
   html {

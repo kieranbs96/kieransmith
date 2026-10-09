@@ -10,8 +10,6 @@ import {
 } from 'motion/react'
 
 const GLOW_COLOUR = 'color-mix(in oklch, var(--primary) 9%, transparent)'
-// High stiffness + low mass keeps the glow close to the cursor with only a
-// slight softening; lower stiffness makes it lag noticeably
 const SPRING = { stiffness: 550, damping: 45, mass: 0.3 }
 
 export function GlowBackground() {
@@ -28,10 +26,6 @@ export function GlowBackground() {
       if (event.pointerType !== 'mouse') {
         return
       }
-      // Jump (no spring) on the first move so the glow doesn't fly in
-      // from the corner, and on every move for reduced-motion users so
-      // the glow still follows the cursor, just without the trailing
-      // animation
       if (!hasPointer || prefersReducedMotion) {
         mouseX.jump(event.clientX)
         mouseY.jump(event.clientY)
@@ -50,8 +44,6 @@ export function GlowBackground() {
 
   const background = useMotionTemplate`radial-gradient(600px at ${x}px ${y}px, ${GLOW_COLOUR}, transparent 80%)`
 
-  // Static top glow for touch devices, reduced motion, and before the
-  // first mouse move, matching the old fixed background
   if (!hasPointer) {
     return (
       <div

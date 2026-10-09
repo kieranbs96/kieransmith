@@ -1,6 +1,4 @@
-// Hex approximations of the dark-mode tokens in globals.css. ImageResponse
-// (icons, OG image) can't read CSS variables or parse oklch, so keep these
-// in sync if the palette changes.
+// Keep these ImageResponse colours in sync with globals.css.
 export const brandColours = {
   background: '#10100f',
   foreground: '#ebebe9',

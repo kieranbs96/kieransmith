@@ -1,9 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'motion/react'
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/ssr'
 import type { LinkItem } from '@/lib/content'
+import styles from './link-card.module.css'
 
 interface LinkCardProps {
   link: LinkItem
@@ -19,7 +21,19 @@ export function LinkCard({ link }: LinkCardProps) {
   const TrailingIcon = isExternal ? ArrowUpRight : ArrowRight
 
   return (
-    <motion.li variants={itemVariants} className="list-none">
+    <motion.li variants={itemVariants} className={`list-none ${styles.item}`}>
+      {link.preview ? (
+        <figure className={styles.preview}>
+          <Image
+            src={link.preview.src}
+            alt={link.preview.alt}
+            width={640}
+            height={400}
+            sizes="(min-width: 1024px) 240px, (max-width: 448px) calc(100vw - 40px), 408px"
+            className="aspect-[8/5] w-full object-cover"
+          />
+        </figure>
+      ) : null}
       <Link
         href={link.href}
         target={isExternal ? '_blank' : undefined}

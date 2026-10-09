@@ -25,12 +25,18 @@ export interface SocialLink {
   icon: IconComponent
 }
 
+export interface ProjectPreview {
+  src: string
+  alt: string
+}
+
 export interface LinkItem {
   title: string
   subtitle?: string
   href: string
   icon: IconComponent
   isExternal?: boolean
+  preview?: ProjectPreview
 }
 
 export interface LinkGroup {
@@ -43,7 +49,7 @@ export const profile: Profile = {
   initials: 'KS',
   title: 'Software Engineer at Global',
   location: 'London, UK',
-  bio: 'Self-taught software engineer, 9+ years in, working mainly with React for the last 6.',
+  bio: 'Self-taught software engineer building for the web since 2015. I work on Global Player with React, Next.js and TypeScript.',
 }
 
 export const socialLinks: SocialLink[] = [
@@ -75,8 +81,11 @@ export interface Project {
   slug: string
   title: string
   subtitle: string
+  metadataTitle: string
+  description: string
   icon: IconComponent
   technologies: string[]
+  preview?: ProjectPreview
   writeup: string[]
   links: ProjectLink[]
 }
@@ -86,6 +95,13 @@ export const projects: Project[] = [
     slug: 'global-player',
     title: 'Global Player',
     subtitle: 'A radio & podcast streaming service',
+    metadataTitle: 'Frontend Engineering',
+    description:
+      'Explore Kieran Smith’s frontend engineering work on Global Player, building radio and podcast experiences with Next.js, React and TypeScript.',
+    preview: {
+      src: '/projects/global-player-placeholder.svg',
+      alt: 'Global Player preview placeholder. Screenshot to be added.',
+    },
     icon: Radio,
     technologies: ['React', 'Next.js', 'TypeScript', 'Jest', 'GraphQL'],
     writeup: [
@@ -106,6 +122,13 @@ export const projects: Project[] = [
     slug: 'twitter-clone',
     title: 'Twitter Clone',
     subtitle: 'A full-stack side project',
+    metadataTitle: 'Full-stack Next.js Project',
+    description:
+      'Explore Kieran Smith’s full-stack Twitter clone, built with Next.js, TypeScript and Prisma, featuring posts, follows, likes and NextAuth sign-in.',
+    preview: {
+      src: '/projects/twitter-clone-placeholder.svg',
+      alt: 'Twitter Clone preview placeholder. Screenshot to be added.',
+    },
     icon: GithubLogo,
     technologies: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'NextAuth'],
     writeup: [
@@ -153,6 +176,7 @@ export const linkGroups: LinkGroup[] = [
       href: `/projects/${project.slug}`,
       icon: project.icon,
       isExternal: false,
+      preview: project.preview,
     })),
   },
 ]

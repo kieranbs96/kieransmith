@@ -10,7 +10,7 @@ export function SocialRow() {
     <motion.nav
       aria-label="Social links"
       className="-ml-2.5 flex items-center gap-1"
-      initial={{ opacity: 0 }}
+      initial={false}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
     >

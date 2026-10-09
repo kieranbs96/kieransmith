@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { BackLink } from '@/components/back-link'
 import { ProjectDetail } from '@/components/project-detail'
 import { SiteFooter } from '@/components/site-footer'
+import { StructuredData } from '@/components/structured-data'
+import { breadcrumbSchema, pageMetadata } from '@/lib/seo'
 import { getProject, projects } from '@/lib/content'
 
 interface ProjectPageProps {
@@ -19,13 +21,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = getProject(slug)
 
   if (!project) {
-    return { title: 'Project · Kieran Smith' }
+    notFound()
   }
 
-  return {
-    title: `${project.title} · Kieran Smith`,
-    description: project.subtitle,
-  }
+  return pageMetadata(
+    `/projects/${project.slug}`,
+    `${project.title} · ${project.metadataTitle} · Kieran Smith`,
+    project.description,
+  )
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -38,7 +41,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-10 px-5 py-14 sm:py-20">
-      <BackLink />
+      <StructuredData data={breadcrumbSchema(`/projects/${project.slug}`, project.title)} />
+      <BackLink currentPage={project.title} />
       <ProjectDetail slug={slug} />
       <SiteFooter />
     </main>

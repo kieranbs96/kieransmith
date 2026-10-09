@@ -1,18 +1,20 @@
-import type { Metadata } from 'next'
 import { BackLink } from '@/components/back-link'
 import { ExperienceList } from '@/components/experience-list'
 import { SiteFooter } from '@/components/site-footer'
+import { StructuredData } from '@/components/structured-data'
+import { breadcrumbSchema, pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Experience · Kieran Smith',
-  description:
-    'Work experience of Kieran Smith, Software Engineer at Global: 9+ years across Global, Education First, Conversion and SellerDeck.',
-}
+export const metadata = pageMetadata(
+  '/experience',
+  'Frontend Engineering Experience · Kieran Smith',
+  'Explore Kieran Smith’s frontend engineering experience at Global, Education First, Conversion and SellerDeck, building for the web since 2015.',
+)
 
 export default function ExperiencePage() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-10 px-5 py-14 sm:py-20">
-      <BackLink />
+      <StructuredData data={breadcrumbSchema('/experience', 'Experience')} />
+      <BackLink currentPage="Experience" />
 
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">

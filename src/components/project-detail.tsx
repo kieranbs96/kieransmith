@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { LinkCard } from '@/components/link-card'
 import { getProject } from '@/lib/content'
@@ -31,7 +32,7 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
     <motion.div
       className="flex w-full flex-col gap-8"
       variants={containerVariants}
-      initial="hidden"
+      initial={false}
       animate="visible"
     >
       <motion.header variants={itemVariants} className="flex flex-col gap-2">
@@ -41,11 +42,31 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
         <p className="text-muted-foreground">{project.subtitle}</p>
       </motion.header>
 
+      {project.preview ? (
+        <motion.figure
+          variants={itemVariants}
+          className="overflow-hidden rounded-lg border border-border bg-card"
+        >
+          <Image
+            src={project.preview.src}
+            alt={project.preview.alt}
+            width={640}
+            height={400}
+            sizes="(max-width: 576px) calc(100vw - 40px), 536px"
+            preload
+            className="aspect-[8/5] w-full object-cover"
+          />
+        </motion.figure>
+      ) : null}
+
       <motion.section
         variants={itemVariants}
-        aria-label="About this project"
+        aria-labelledby="project-engineering"
         className="flex flex-col gap-4"
       >
+        <h2 id="project-engineering" className="text-lg font-medium text-foreground">
+          {slug === 'global-player' ? 'My frontend engineering work' : 'Building the full-stack app'}
+        </h2>
         {project.writeup.map((paragraph) => (
           <p key={paragraph} className="text-[15px] leading-relaxed text-foreground/80">
             {paragraph}

@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   verify:
-    name: Typecheck, lint & build
+    name: Typecheck, lint, build & SEO
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,3 +39,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: SEO regression tests
+        run: node --test tests/seo.test.mjs
