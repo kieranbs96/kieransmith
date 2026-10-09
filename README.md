@@ -19,11 +19,11 @@ The bio, social links, projects, and work experience all live in one typed file:
 
 ## Scripts
 
-| Script | What it does |
-| --- | --- |
-| `npm run dev` | Start the dev server |
-| `npm run build` | Production build |
+| Script              | What it does                                     |
+| ------------------- | ------------------------------------------------ |
+| `npm run dev`       | Start the dev server                             |
+| `npm run build`     | Production build                                 |
 | `npm run typecheck` | Type-check with the native TypeScript 7 compiler |
-| `npm run lint` | Run ESLint |
+| `npm run lint`      | Run ESLint                                       |
 
 CI runs typecheck, lint, and build on every push and pull request, and Dependabot keeps dependencies up to date.

@@ -1,4 +1,5 @@
 import { LinkList } from '@/components/link-list'
+import { PersonalSection } from '@/components/personal-section'
 import { ProfileHeader } from '@/components/profile-header'
 import { SiteFooter } from '@/components/site-footer'
 import { SocialRow } from '@/components/social-row'
@@ -36,6 +37,7 @@ export default function Home() {
         <SocialRow />
       </div>
       <LinkList />
+      <PersonalSection />
       <SiteFooter />
     </main>
   )

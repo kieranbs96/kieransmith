@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
 import { BackLink } from '@/components/back-link'
 import { ProjectDetail } from '@/components/project-detail'
 import { SiteFooter } from '@/components/site-footer'
 import { StructuredData } from '@/components/structured-data'
-import { breadcrumbSchema, pageMetadata } from '@/lib/seo'
 import { getProject, projects } from '@/lib/content'
+import { breadcrumbSchema, pageMetadata } from '@/lib/seo'
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>
 }
 
-export const generateStaticParams = () =>
-  projects.map((project) => ({ slug: project.slug }))
+export const generateStaticParams = () => projects.map((project) => ({ slug: project.slug }))
 
 export const dynamicParams = false
 

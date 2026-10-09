@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { profile } from '@/lib/content'
 
@@ -20,9 +21,7 @@ export function ProfileHeader() {
         </Avatar>
 
         <div className="flex min-w-0 flex-col gap-0.5">
-          <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-            {profile.name}
-          </h1>
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">{profile.name}</h1>
           <p className="font-mono text-xs text-muted-foreground">
             {profile.title}, {profile.location}
           </p>

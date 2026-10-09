@@ -1,8 +1,9 @@
 'use client'
 
-import Link from 'next/link'
-import { motion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react/ssr'
+import { motion } from 'motion/react'
+import Link from 'next/link'
+
 import { experiences } from '@/lib/content'
 
 const containerVariants = {
@@ -42,7 +43,7 @@ export function ExperienceList() {
           </p>
 
           <div>
-            <h2 className="text-base font-medium leading-6 text-foreground">
+            <h2 className="text-base leading-6 font-medium text-foreground">
               {experience.jobTitle},{' '}
               <Link
                 href={experience.employerLink}

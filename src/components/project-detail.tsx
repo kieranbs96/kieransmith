@@ -1,7 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'motion/react'
+import Image from 'next/image'
+
 import { LinkCard } from '@/components/link-card'
 import { getProject } from '@/lib/content'
 
@@ -50,11 +51,11 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
           <Image
             src={project.preview.src}
             alt={project.preview.alt}
-            width={640}
-            height={400}
+            width={project.preview.width}
+            height={project.preview.height}
             sizes="(max-width: 576px) calc(100vw - 40px), 536px"
             preload
-            className="aspect-[8/5] w-full object-cover"
+            className="h-auto w-full"
           />
         </motion.figure>
       ) : null}
@@ -65,12 +66,22 @@ export function ProjectDetail({ slug }: ProjectDetailProps) {
         className="flex flex-col gap-4"
       >
         <h2 id="project-engineering" className="text-lg font-medium text-foreground">
-          {slug === 'global-player' ? 'My frontend engineering work' : 'Building the full-stack app'}
+          My work at Global
         </h2>
         {project.writeup.map((paragraph) => (
           <p key={paragraph} className="text-[15px] leading-relaxed text-foreground/80">
             {paragraph}
           </p>
+        ))}
+        {project.sections.map((section) => (
+          <section key={section.heading} className="mt-3 flex flex-col gap-4">
+            <h3 className="text-base font-medium text-foreground">{section.heading}</h3>
+            {section.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-[15px] leading-relaxed text-foreground/80">
+                {paragraph}
+              </p>
+            ))}
+          </section>
         ))}
         <p className="font-mono text-xs leading-relaxed text-faint">
           <span className="sr-only">Technologies used: </span>

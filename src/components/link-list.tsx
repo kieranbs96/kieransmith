@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+
 import { LinkCard } from '@/components/link-card'
 import { linkGroups } from '@/lib/content'
 

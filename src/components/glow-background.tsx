@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import {
   motion,
   useMotionTemplate,
@@ -8,6 +7,7 @@ import {
   useReducedMotion,
   useSpring,
 } from 'motion/react'
+import { useEffect, useState } from 'react'
 
 const GLOW_COLOUR = 'color-mix(in oklch, var(--primary) 9%, transparent)'
 const SPRING = { stiffness: 550, damping: 45, mass: 0.3 }

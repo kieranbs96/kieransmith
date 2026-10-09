@@ -6,8 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "test:seo": "npm run build && node --test tests/seo.test.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix --max-warnings=0",
+    "format": "prettier --write . && npm run format:code",
+    "format:code": "eslint . --fix --max-warnings=0 && prettier-eslint --write --prettier-last \"src/**/*.{ts,tsx}\" \"tests/**/*.ts\" \"*.mjs\" \"*.ts\"",
+    "format:check": "prettier --check .",
+    "test:seo": "npm run build && node --test tests/seo.test.ts",
     "typecheck": "next typegen && node node_modules/typescript7/bin/tsc --noEmit"
   },
   "dependencies": {
@@ -31,6 +35,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.3.8",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
+    "prettier": "^3.9.9",
+    "prettier-eslint": "^17.1.2",
+    "prettier-eslint-cli": "^9.2.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
     "typescript": "~6.0.3",
     "typescript7": "npm:typescript@^7.0.2"

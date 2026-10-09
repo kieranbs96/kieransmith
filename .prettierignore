@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.vercel/
+out/
+build/
+coverage/
+.env*
+package-lock.json
+next-env.d.ts
+*.tsbuildinfo
+public/
+# Next.js maintains this generated instruction file.
+AGENTS.md

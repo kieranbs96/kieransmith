@@ -28,6 +28,8 @@ export interface SocialLink {
 export interface ProjectPreview {
   src: string
   alt: string
+  width: number
+  height: number
 }
 
 export interface LinkItem {
@@ -50,6 +52,61 @@ export const profile: Profile = {
   title: 'Software Engineer at Global',
   location: 'London, UK',
   bio: 'Self-taught software engineer building for the web since 2015. I work on Global Player with React, Next.js and TypeScript.',
+}
+
+export interface CurrentFavourite {
+  label: string
+  title: string
+  creator: string
+  href: string
+  artwork: ProjectPreview
+}
+
+// Update these entries and artwork paths as your favourites change; add href to link the artwork.
+export const personal = {
+  bio: 'Away from work, I’m usually getting stuck into a game, watching the football (CFC) or trying something new in the kitchen.',
+  footballClub: {
+    name: 'CFC',
+    crest: '/personal/chelsea-fc.svg',
+  },
+  favourites: [
+    {
+      label: 'On repeat',
+      title: 'If Time Could Talk',
+      creator: 'Wesley Joseph',
+      href: '',
+      artwork: {
+        src: '/personal/forever-ends-someday.webp',
+        alt: 'Wesley Joseph album artwork accompanying If Time Could Talk',
+        width: 800,
+        height: 800,
+      },
+    },
+    {
+      label: 'Playing',
+      title: 'Valheim',
+      creator: 'Iron Gate Studio',
+      href: '',
+      artwork: {
+        src: '/personal/valheim.png',
+        alt: 'Valheim artwork with its glowing V logo',
+        width: 360,
+        height: 360,
+      },
+    },
+    {
+      label: 'Reading',
+      title: 'Salt Fat Acid Heat',
+      creator: 'Samin Nosrat',
+      href: '',
+      artwork: {
+        src: '/personal/salt-fat-acid-heat.jpg',
+        alt: 'Salt Fat Acid Heat book cover by Samin Nosrat',
+        width: 1990,
+        height: 2560,
+      },
+    },
+  ] satisfies CurrentFavourite[],
 }
 
 export const socialLinks: SocialLink[] = [
@@ -77,6 +134,11 @@ export interface ProjectLink {
   icon: IconComponent
 }
 
+export interface ProjectSection {
+  heading: string
+  paragraphs: string[]
+}
+
 export interface Project {
   slug: string
   title: string
@@ -87,6 +149,7 @@ export interface Project {
   technologies: string[]
   preview?: ProjectPreview
   writeup: string[]
+  sections: ProjectSection[]
   links: ProjectLink[]
 }
 
@@ -95,19 +158,63 @@ export const projects: Project[] = [
     slug: 'global-player',
     title: 'Global Player',
     subtitle: 'A radio & podcast streaming service',
-    metadataTitle: 'Frontend Engineering',
+    metadataTitle: 'Software Engineering',
     description:
-      'Explore Kieran Smith’s frontend engineering work on Global Player, building radio and podcast experiences with Next.js, React and TypeScript.',
+      'Explore Kieran Smith’s work on Global Player, from its Next.js web app and content tools to Alexa, ad-free listening and backend services.',
     preview: {
-      src: '/projects/global-player-placeholder.svg',
-      alt: 'Global Player preview placeholder. Screenshot to be added.',
+      src: '/projects/global-player-hero.png',
+      alt: 'Global Player web app showing podcast playback and live radio',
+      width: 1448,
+      height: 1086,
     },
     icon: Radio,
-    technologies: ['React', 'Next.js', 'TypeScript', 'Jest', 'GraphQL'],
+    technologies: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'Node.js', 'AWS Lambda', 'Python'],
     writeup: [
-      "Global Player is where you'll find Capital, Heart, Classic FM and LBC, plus podcasts and playlists. Millions of people listen through it every week, on the web and on mobile.",
-      "I work on the web app, which is built with Next.js and TypeScript. That covers everything from live radio and catch-up to podcast browsing and playback, built alongside the designers and backend engineers on the team.",
-      'Most of what I ship is backed by integration tests written with Jest, React Testing Library and Mock Service Worker, and I do component work in Storybook.',
+      'At Global, I build listening experiences and content tools for Global Player, which brings together Global’s radio stations, podcasts and playlists. My work spans the Next.js web app, internal publishing tools, Alexa and Apple TV, covering frontend development, backend services, testing and CI.',
+    ],
+    sections: [
+      {
+        heading: 'Web app',
+        paragraphs: [
+          'I develop features for globalplayer.com that help listeners find content, personalise their stations and control playback. My contributions include the dynamic home hub, the station selector customiser for logged-in users, and sharing podcasts and radio. I’ve also contributed to the podcast experience overhaul, playback speed, OAuth account linking and ad-free streams for premium subscribers.',
+          'I work with Next.js, React, TypeScript and CSS Modules, developing reusable components in Storybook using Atomic Design. I back feature work with tests using Jest, React Testing Library and Mock Service Worker, exercising the interface with mocked API responses.',
+        ],
+      },
+      {
+        heading: 'Internal content tools',
+        paragraphs: [
+          'I build tools for the teams publishing content to Global Player and other Global products. I helped introduce collections to the internal admin panel, giving editors a way to bring different types of content together and display those collections across multiple products.',
+          'This work uses React, TypeScript and Vite, with Apollo and GraphQL for data. I work with Chakra UI and Motion on the interface, and Storybook for component development.',
+        ],
+      },
+      {
+        heading: 'Alexa',
+        paragraphs: [
+          'My recent work includes bringing ad-free listening to Alexa, one of Global’s most-used radio platforms, alongside promotional pre-rolls for the premium subscription. I work on both the Alexa-facing app and its backend-for-frontend (BFF), connecting the listening experience with the services behind it.',
+          'The Alexa-facing app runs on AWS Lambda, using TypeScript, the ASK SDK, AWS SDK and Axios. On the Node.js BFF, there’s a focus on reducing unnecessary calls and load on backend services given the number of people listening through Alexa.',
+          'The BFF work also involves TypeScript, Zod and GraphQL with Codegen, with Jest and Mock Service Worker for testing.',
+        ],
+      },
+      {
+        heading: 'Entitlement expression parser',
+        paragraphs: [
+          'I wrote and published an internal package for parsing user entitlement expressions, which describe access to features and content.',
+          'I built the package with TypeScript and Vite, and used Vitest to test the parsing logic.',
+        ],
+      },
+      {
+        heading: 'Other platform work',
+        paragraphs: [
+          'I implemented ad-free listening in an existing Apple TV app written in TVML, extending the subscription experience to a platform outside the React stack I use day to day.',
+          'I’ve also added routes to a Python BFF, extending the backend services that support Global’s products.',
+        ],
+      },
+      {
+        heading: 'CI',
+        paragraphs: [
+          'I also contribute to CI improvements using GitHub Actions, Jenkins and Docker. My work extends beyond product features to the pipelines used to build, test and ship changes.',
+        ],
+      },
     ],
     links: [
       {
@@ -115,32 +222,6 @@ export const projects: Project[] = [
         subtitle: 'globalplayer.com',
         href: 'https://globalplayer.com/',
         icon: Globe,
-      },
-    ],
-  },
-  {
-    slug: 'twitter-clone',
-    title: 'Twitter Clone',
-    subtitle: 'A full-stack side project',
-    metadataTitle: 'Full-stack Next.js Project',
-    description:
-      'Explore Kieran Smith’s full-stack Twitter clone, built with Next.js, TypeScript and Prisma, featuring posts, follows, likes and NextAuth sign-in.',
-    preview: {
-      src: '/projects/twitter-clone-placeholder.svg',
-      alt: 'Twitter Clone preview placeholder. Screenshot to be added.',
-    },
-    icon: GithubLogo,
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS', 'NextAuth'],
-    writeup: [
-      'A full-stack Twitter clone I built to try the T3-style stack properly: Next.js and TypeScript on the front, Prisma and a relational database behind it, Tailwind for styling.',
-      'It does the core things you would expect: posting, following, likes and profile pages, with sign-in handled by NextAuth. The interesting parts were modelling followers and timelines in the database and keeping server and client state in sync.',
-    ],
-    links: [
-      {
-        title: 'View the source',
-        subtitle: 'github.com/kieranbs96/twitter-clone',
-        href: 'https://github.com/kieranbs96/twitter-clone',
-        icon: GithubLogo,
       },
     ],
   },
@@ -238,7 +319,7 @@ export const experiences: Experience[] = [
     from: 'Aug 2015',
     to: 'May 2018',
     description:
-      "I started at SellerDeck on 3rd line support and moved over to development in 2015. From there I built custom sites for clients on the SellerDeck platform, using its PHP-like templating language, and did a fair bit with Magento and WordPress too.",
+      'I started at SellerDeck on 3rd line support and moved over to development in 2015. From there I built custom sites for clients on the SellerDeck platform, using its PHP-like templating language, and did a fair bit with Magento and WordPress too.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'jQuery'],
   },
 ]

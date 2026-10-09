@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+
 import { BackLink } from '@/components/back-link'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -14,9 +15,7 @@ export default function NotFound() {
 
       <header className="flex flex-col gap-3">
         <p className="font-mono text-xs text-faint">404</p>
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">
-          Page not found
-        </h1>
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground">Page not found</h1>
         <p className="text-[15px] leading-relaxed text-foreground/80">
           This page doesn’t exist or has moved. My{' '}
           <Link

@@ -1,10 +1,12 @@
 'use client'
 
+import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/ssr'
+import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'motion/react'
-import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/ssr'
+
 import type { LinkItem } from '@/lib/content'
+
 import styles from './link-card.module.css'
 
 interface LinkCardProps {
@@ -27,10 +29,10 @@ export function LinkCard({ link }: LinkCardProps) {
           <Image
             src={link.preview.src}
             alt={link.preview.alt}
-            width={640}
-            height={400}
+            width={link.preview.width}
+            height={link.preview.height}
             sizes="(min-width: 1024px) 240px, (max-width: 448px) calc(100vw - 40px), 408px"
-            className="aspect-[8/5] w-full object-cover"
+            className="h-auto w-full"
           />
         </figure>
       ) : null}
@@ -40,7 +42,10 @@ export function LinkCard({ link }: LinkCardProps) {
         rel={isExternal ? 'noreferrer' : undefined}
         className="group flex items-center gap-4 rounded-lg border border-border bg-card/60 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:translate-y-px"
       >
-        <link.icon aria-hidden="true" className="size-5 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+        <link.icon
+          aria-hidden="true"
+          className="size-5 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground"
+        />
 
         <span className="min-w-0 flex-1 text-left">
           <span className="block truncate font-medium text-foreground">{link.title}</span>

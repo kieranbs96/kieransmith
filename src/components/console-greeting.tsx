@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+
 import { profile, socialLinks } from '@/lib/content'
 
 export function ConsoleGreeting() {

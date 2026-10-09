@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+
 import { Monogram } from '@/components/monogram'
 
 export const size = { width: 32, height: 32 }
