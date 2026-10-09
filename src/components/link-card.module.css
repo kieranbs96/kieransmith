@@ -1,0 +1,37 @@
+.item {
+  position: relative;
+}
+
+.preview {
+  margin: 0 0 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .preview {
+    position: absolute;
+    left: calc(100% + 1rem);
+    top: 50%;
+    width: 240px;
+    margin: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .item:hover .preview,
+  .item:focus-within .preview {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .preview {
+      transition: opacity 160ms ease;
+    }
+  }
+}
